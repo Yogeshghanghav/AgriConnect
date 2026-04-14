@@ -17,12 +17,8 @@ const AddCrop = () => {
   const handleChange = (e) => {
     setCrop({ ...crop, [e.target.name]: e.target.value });
   };
-
-  // ✅ handleSubmit must be async
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Validate required fields
     if (!crop.name || !crop.description) {
       toast.error("Please fill in all required fields.");
       return;
@@ -34,7 +30,6 @@ const AddCrop = () => {
         throw new Error("Failed to fetch crops");
 
       }
-      // submit the crop data
       await axios.post("http://localhost:5000/api/crops", crop);
       setCrop({
         name:" ",
@@ -42,14 +37,13 @@ const AddCrop = () => {
         description:" ",
         quantity:"",
         location:""
-      })
-      //show success message
+      }
       
-      toast.success("✅ Crop submitted successfully!");
+      toast.success("Crop submitted successfully!");
       setSubmitted(true);
     } catch (err) {
       console.error(err);
-      toast.error("❌ Error submitting crop.");
+      toast.error("Error submitting crop.");
     }
   };
 
