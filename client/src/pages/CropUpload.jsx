@@ -21,16 +21,13 @@ export default function CropUpload() {
     e.preventDefault();
 
     try {
-      // ⚠️ Replace with dynamic farmer ID from logged-in user context or token
       const farmerId = "660f9d6e4f6c8c1234567890";
 
       const cropData = { ...formData, farmer: farmerId };
 
       await axios.post("http://localhost:5000/api/crops", cropData);
 
-      alert("✅ Crop uploaded successfully!");
-
-      // Reset the form
+      alert("Crop uploaded successfully!");
       setFormData({
         title: "",
         description: "",
@@ -41,7 +38,7 @@ export default function CropUpload() {
       });
     } catch (err) {
       console.error("Upload failed:", err);
-      alert("❌ Crop upload failed");
+      alert("Crop upload failed");
     }
   };
 
