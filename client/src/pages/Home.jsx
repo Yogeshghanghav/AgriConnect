@@ -14,7 +14,6 @@ const Home = () => {
 
   return (
     <div className="bg-green-50 min-h-screen flex flex-col">
-      {/* Hero Section */}
       <div className="bg-green-700 text-white py-20 px-6 text-center">
         <motion.img
           src="../images/herofarmer.png"
@@ -38,15 +37,11 @@ const Home = () => {
           </p>
         </motion.div>
       </div>
-
-      {/* Quick Navigation */}
       <div className="flex flex-col md:flex-row justify-center gap-6 py-12 px-4">
         <CardLink to="/crops" icon="🌾" title="Crops" desc="Explore or add crops" />
         <CardLink to="/weather" icon="☀️" title="Weather" desc="Check local forecast" />
         <CardLink to="/market" icon="🛒" title="Market" desc="Current market prices" />
       </div>
-
-      {/* About Section */}
       <div className="px-6 py-12 bg-white text-center">
         <h2 className="text-3xl font-bold text-green-800 mb-4">
           Why AgriConnect?
@@ -57,16 +52,12 @@ const Home = () => {
           prices — it’s all in one place!
         </p>
       </div>
-
-      {/* Footer */}
       <footer className="bg-green-700 text-white text-center py-4 mt-auto">
         <p>© {new Date().getFullYear()} AgriConnect. All rights reserved.</p>
       </footer>
     </div>
   );
 };
-
-// ✅ Reusable card component
 const CardLink = ({ to, icon, title, desc }) => (
   <a
     href={to}
