@@ -1,6 +1,4 @@
 const Crop = require("../models/Crop");
-
-// ✅ Add a new crop (with validation)
 const createCrop = async (req, res) => {
   const { name, quantity, price, location, userId } = req.body;
 
@@ -13,23 +11,19 @@ const createCrop = async (req, res) => {
     await newCrop.save();
     res.status(201).json(newCrop);
   } catch (err) {
-    console.error("❌ Error saving crop:", err);
+    console.error("Error saving crop:", err);
     res.status(500).json({ message: "Failed to add crop" });
   }
 };
-
-// ✅ Get all crops (for buyer market)
 const getAllCrops = async (req, res) => {
   try {
     const crops = await Crop.find().populate("userId", "email");
     res.status(200).json(crops);
   } catch (err) {
-    console.error("❌ Error fetching all crops:", err);
+    console.error("Error fetching all crops:", err);
     res.status(500).json({ message: "Failed to fetch crops" });
   }
 };
-
-// ✅ Get crops by specific user (for farmer profile)
 const getCropsByUser = async (req, res) => {
   const userId = req.params.id;
 
@@ -37,19 +31,18 @@ const getCropsByUser = async (req, res) => {
     const crops = await Crop.find({ userId });
     res.status(200).json(crops);
   } catch (err) {
-    console.error("❌ Error fetching user crops:", err);
+    console.error("Error fetching user crops:", err);
     res.status(500).json({ message: "Failed to fetch user crops" });
   }
 };
 
-// ✅ Delete a crop by ID
 const deleteCrop = async (req, res) => {
   try {
     const cropId = req.params.id;
     await Crop.findByIdAndDelete(cropId);
     res.status(200).json({ message: "Crop deleted successfully" });
   } catch (err) {
-    console.error("❌ Error deleting crop:", err);
+    console.error(" Error deleting crop:", err);
     res.status(500).json({ message: "Failed to delete crop" });
   }
 };
@@ -70,12 +63,10 @@ const updateCrop = async (req, res) => {
 
     res.status(200).json(updatedCrop);
   } catch (err) {
-    console.error("❌ Error updating crop:", err);
+    console.error("Error updating crop:", err);
     res.status(500).json({ message: "Failed to update crop" });
   }
 };
-
-// ✅ Export all controller functions
 module.exports = {
   createCrop,
   getAllCrops,
