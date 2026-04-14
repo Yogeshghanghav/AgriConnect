@@ -21,16 +21,12 @@ const Navbar = () => {
         <Link to="/" className="text-2xl font-extrabold tracking-wide text-white">
           🌿 AgriConnect
         </Link>
-
-        {/* Navigation Links */}
         <div className="flex items-center space-x-4">
           <Link to="/" className="hover:text-yellow-300">Home</Link>
           <Link to="/crops" className="hover:text-yellow-300">Crops</Link>
           <Link to="/weather" className="hover:text-yellow-300">Weather</Link>
           <Link to="/market" className="hover:text-yellow-300">Market</Link>
           <Link to="/farmer" className="hover:text-yellow-300">Farmer</Link>
-
-          {/* Conditional User Section */}
           {parsedUser ? (
             <>
               <span className="text-yellow-200 text-sm italic">
