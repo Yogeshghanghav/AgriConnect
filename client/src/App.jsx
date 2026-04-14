@@ -12,7 +12,7 @@ import AuthPage from "./pages/AuthPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Crops from "./pages/Crops";
 import FarmerDashboard from "./pages/FarmerDashboard";
-import AddOrEditCrop from "./pages/AddOrEditCrop"; // ✅ added
+import AddOrEditCrop from "./pages/AddOrEditCrop"; 
 
 function App() {
   return (
