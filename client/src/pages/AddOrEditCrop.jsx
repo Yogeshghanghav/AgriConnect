@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 const AddOrEditCrop = () => {
-  const { cropId } = useParams(); // If editing
+  const { cropId } = useParams(); 
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
